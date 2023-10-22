@@ -27,7 +27,7 @@ jobs:
 
       - name: Zipping
         run: |
-          tar -a -cf node-app.zip node-app
+          tar -a -cf node-app.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
