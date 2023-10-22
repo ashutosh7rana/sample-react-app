@@ -48,11 +48,6 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzipping
-        run: |
-          tar -m -xf node-app.zip
-          del node-app.zip
-
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
@@ -60,4 +55,4 @@ jobs:
           app-name: 'sense8-react-win-app-v02'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_51ED4925864E421F9A36C526363791B7 }}
-          package: .
+          package: node-app.zip
