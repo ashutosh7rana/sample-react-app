@@ -27,8 +27,7 @@ jobs:
 
       - name: Zipping
         run: |
-          powershell Compress-Archive . .\node-app.zip
-          exit
+          tar -cf node-app.zip .
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -51,8 +50,7 @@ jobs:
 
       - name: Unzipping
         run: |
-          powershell Expand-Archive node-app.zip
-          exit
+          tar -xf node-app.zip
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
