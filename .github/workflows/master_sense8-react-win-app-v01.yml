@@ -25,11 +25,15 @@ jobs:
         run: |
           npm install
 
+      - name: Zipping
+        run: |
+          zip -r node-app.zip .
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: .
+          path: node-app.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,6 +47,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+          
+      - name: Unzipping
+        run: |
+          unzip node-app.zip
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
