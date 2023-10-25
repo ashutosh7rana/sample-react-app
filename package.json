@@ -42,7 +42,6 @@
     "build": "node node_modules/react-scripts/bin/react-scripts build",
     "test": "node node_modules/react-scripts/bin/react-scripts test",
     "eject": "node node_modules/react-scripts/bin/react-scripts eject",
-    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
